@@ -110,7 +110,7 @@
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PopulandoQueueFilhas" sap:VirtualizedContainerService.HintSize="976,6035" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="PopulandoQueueFilhas" sap:VirtualizedContainerService.HintSize="888,5921" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="CDI" Name="variableCDI" />
       <Variable x:TypeArguments="x:String" Default="Dolar" Name="variableDolar" />
@@ -136,14 +136,6 @@
       </Assign.To>
       <Assign.Value>
         <InArgument x:TypeArguments="x:String">[Now.ToString]</InArgument>
-      </Assign.Value>
-    </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="484,114" sap2010:WorkflowViewState.IdRef="Assign_2">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[dataExtracao]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[dataExtracao.Substring(0,10)]</InArgument>
       </Assign.Value>
     </Assign>
     <Sequence sap:VirtualizedContainerService.HintSize="484,4915" sap2010:WorkflowViewState.IdRef="Sequence_63">

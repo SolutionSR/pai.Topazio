@@ -107,7 +107,7 @@
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="scriptHora" sap:VirtualizedContainerService.HintSize="1282,3270" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="scriptHora" sap:VirtualizedContainerService.HintSize="888,3239" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="dataHoje" />
       <Variable x:TypeArguments="x:String" Name="diaSemanaExt" />
@@ -121,7 +121,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Verificando dia da semana" sap:VirtualizedContainerService.HintSize="764,3247" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Verificando dia da semana" sap:VirtualizedContainerService.HintSize="764,3216" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="feriados" />
         <Variable x:TypeArguments="x:String" Name="feriado" />
@@ -154,7 +154,7 @@
           <OutArgument x:TypeArguments="x:String">[feriado]</OutArgument>
         </ui:LookupDataTable.CellValue>
       </ui:LookupDataTable>
-      <If Condition="[feriado=&quot;&quot;]" sap:VirtualizedContainerService.HintSize="730,84" sap2010:WorkflowViewState.IdRef="If_12">
+      <If Condition="[feriado=&quot;&quot;]" sap:VirtualizedContainerService.HintSize="730,57" sap2010:WorkflowViewState.IdRef="If_12">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -189,7 +189,7 @@
           <InArgument x:TypeArguments="x:String">[dataFormatada.DayOfWeek.ToString]</InArgument>
         </Assign.Value>
       </Assign>
-      <Switch x:TypeArguments="x:String" DisplayName="Verificando se é dia da semana" Expression="[diaSemanaExt]" sap:VirtualizedContainerService.HintSize="730,84" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+      <Switch x:TypeArguments="x:String" DisplayName="Verificando se é dia da semana" Expression="[diaSemanaExt]" sap:VirtualizedContainerService.HintSize="730,57" sap2010:WorkflowViewState.IdRef="Switch`1_1">
         <Switch.Default>
           <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
             <Assign.To>
@@ -238,15 +238,15 @@
           </Assign>
         </Sequence>
       </Switch>
-      <If Condition="[diaSemanaBoo]" sap:VirtualizedContainerService.HintSize="730,2232" sap2010:WorkflowViewState.IdRef="If_6">
+      <If Condition="[diaSemanaBoo]" sap:VirtualizedContainerService.HintSize="730,2255" sap2010:WorkflowViewState.IdRef="If_6">
         <If.Then>
-          <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="696,2051" sap2010:WorkflowViewState.IdRef="Sequence_14">
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="696,2074" sap2010:WorkflowViewState.IdRef="Sequence_14">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Verificando extrações mensais" sap:VirtualizedContainerService.HintSize="662,1991" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Verificando extrações mensais" sap:VirtualizedContainerService.HintSize="662,2014" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <Sequence.Variables>
                 <Variable x:TypeArguments="s:DateTime" Name="dataAtual" />
               </Sequence.Variables>
@@ -296,14 +296,14 @@
                   <InArgument x:TypeArguments="x:String">[dataFormatada.ToString("MM")]</InArgument>
                 </Assign.Value>
               </Assign>
-              <Sequence DisplayName="Verificando se a data é externa" sap:VirtualizedContainerService.HintSize="628,1338" sap2010:WorkflowViewState.IdRef="Sequence_16">
+              <Sequence DisplayName="Verificando se a data é externa" sap:VirtualizedContainerService.HintSize="628,1361" sap2010:WorkflowViewState.IdRef="Sequence_16">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <If Condition="[dataExternaBoo]" sap:VirtualizedContainerService.HintSize="594,1255" sap2010:WorkflowViewState.IdRef="If_7">
+                <If Condition="[dataExternaBoo]" sap:VirtualizedContainerService.HintSize="594,1278" sap2010:WorkflowViewState.IdRef="If_7">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -311,7 +311,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
-                    <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="468,256" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,279" sap2010:WorkflowViewState.IdRef="Sequence_17">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -325,7 +325,7 @@
                           <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                         </Assign.Value>
                       </Assign>
-                      <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_23">
+                      <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_23">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:Boolean">[extracaoMensalIPCA]</OutArgument>
                         </Assign.To>
@@ -336,7 +336,7 @@
                     </Sequence>
                   </If.Then>
                   <If.Else>
-                    <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="560,838" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="560,838" sap2010:WorkflowViewState.IdRef="Sequence_18">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -692,7 +692,7 @@
           </Sequence>
         </If.Then>
         <If.Else>
-          <Sequence DisplayName="Sequence" sap2010:WorkflowViewState.IdRef="Sequence_15">
+          <Sequence DisplayName="Else" sap2010:WorkflowViewState.IdRef="Sequence_15">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>

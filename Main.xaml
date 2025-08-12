@@ -112,9 +112,10 @@
       <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Queue_Diaria_Executar" sap:VirtualizedContainerService.HintSize="1194,4628" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Queue_Diaria_Executar" sap:VirtualizedContainerService.HintSize="888,7373" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="out_Config" />
       <Variable x:TypeArguments="x:Boolean" Name="diaSemanaBoo" />
@@ -134,9 +135,9 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1067,4605" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="798,7350" sap2010:WorkflowViewState.IdRef="TryCatch_2">
       <TryCatch.Try>
-        <Sequence DisplayName="Tentar" sap:VirtualizedContainerService.HintSize="760,4355" sap2010:WorkflowViewState.IdRef="Sequence_7">
+        <Sequence DisplayName="Tentar" sap:VirtualizedContainerService.HintSize="760,7099" sap2010:WorkflowViewState.IdRef="Sequence_7">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Name="teste" />
           </Sequence.Variables>
@@ -146,14 +147,14 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="726,173" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Iniciado execuçao&quot;]" />
-          <Sequence DisplayName="Data externa ou interna" sap:VirtualizedContainerService.HintSize="726,99" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Data externa ou interna" sap:VirtualizedContainerService.HintSize="726,2816" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[String.IsNullOrEmpty(dataExtracao)]" sap:VirtualizedContainerService.HintSize="540,2718" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[String.IsNullOrEmpty(dataExtracao)]" sap:VirtualizedContainerService.HintSize="540,2724" sap2010:WorkflowViewState.IdRef="If_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -213,7 +214,7 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="506,1574" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="506,1580" sap2010:WorkflowViewState.IdRef="Sequence_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -296,7 +297,7 @@
                       <OutArgument x:TypeArguments="s:DateTime" x:Key="cdiDebenture">[cdiDebentureTime]</OutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <If Condition="[not diaSemanaBoo]" DisplayName="If  fim de semana externo" sap:VirtualizedContainerService.HintSize="472,590" sap2010:WorkflowViewState.IdRef="If_2">
+                  <If Condition="[not diaSemanaBoo]" DisplayName="If  fim de semana externo" sap:VirtualizedContainerService.HintSize="472,596" sap2010:WorkflowViewState.IdRef="If_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -315,7 +316,7 @@
                       </Sequence>
                     </If.Then>
                     <If.Else>
-                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_6">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -525,7 +526,7 @@
               </Sequence>
             </If.Else>
           </If>
-          <If Condition="[fundoInvestBoo or diaSemanaBoo or cdiDebentureTime.ToString&lt;&gt;&quot;01/01/0001 00:00:00&quot;]" sap:VirtualizedContainerService.HintSize="726,1127" sap2010:WorkflowViewState.IdRef="If_7">
+          <If Condition="[fundoInvestBoo or diaSemanaBoo or cdiDebentureTime.ToString&lt;&gt;&quot;01/01/0001 00:00:00&quot;]" sap:VirtualizedContainerService.HintSize="726,1154" sap2010:WorkflowViewState.IdRef="If_7">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -533,7 +534,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="536,877" sap2010:WorkflowViewState.IdRef="Sequence_18">
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="536,904" sap2010:WorkflowViewState.IdRef="Sequence_18">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -567,7 +568,7 @@
                     </Sequence>
                   </If.Else>
                 </If>
-                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="502,57" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="502,84" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                   <ui:CommentOut.Body>
                     <Sequence DisplayName="Atividades Ignoradas" sap:VirtualizedContainerService.HintSize="416,228" sap2010:WorkflowViewState.IdRef="Sequence_25">
                       <sap:WorkflowViewStateService.ViewState>
@@ -629,7 +630,7 @@
                     <InArgument x:TypeArguments="x:Boolean" x:Key="dataExterna">[dataExterna]</InArgument>
                     <InArgument x:TypeArguments="x:Boolean" x:Key="fundoInvestBoo">[fundoInvestBoo]</InArgument>
                     <InArgument x:TypeArguments="s:DateTime" x:Key="cdiDebentureTime">[cdiDebentureTime]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="dataExtracao">[dataFormatadaAux.ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="dataExtracao">[dataFormatadaAux.ToString("dd/MM/yyyy")]</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -661,7 +662,7 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1033,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="764,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>

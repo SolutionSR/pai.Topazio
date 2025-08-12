@@ -90,7 +90,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="scriptHora" sap:VirtualizedContainerService.HintSize="1282,708" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="scriptHora" sap:VirtualizedContainerService.HintSize="888,708" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="dataHoje" />
       <Variable x:TypeArguments="x:String" Name="diaSemanaExt" />
