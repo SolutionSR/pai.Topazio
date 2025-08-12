@@ -1,0 +1,141 @@
+{
+  "DisplayName": "Main",
+  "Tooltip": null,
+  "HelpLink": null,
+  "Color": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "dataExtracao",
+      "DisplayName": "dataExtracao",
+      "Category": null,
+      "Tooltip": null,
+      "Placeholder": null,
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "acoesFundosFlag",
+      "DisplayName": "acoesFundosFlag",
+      "Category": null,
+      "Tooltip": null,
+      "Placeholder": "True",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "bovespaFlag",
+      "DisplayName": "bovespaFlag",
+      "Category": null,
+      "Tooltip": null,
+      "Placeholder": "True",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "CDIFLag",
+      "DisplayName": "CDIFLag",
+      "Category": null,
+      "Tooltip": null,
+      "Placeholder": "True",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "CriCraFlag",
+      "DisplayName": "CriCraFlag",
+      "Category": null,
+      "Tooltip": null,
+      "Placeholder": "True",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "debenduresFlag",
+      "DisplayName": "debenduresFlag",
+      "Category": null,
+      "Tooltip": null,
+      "Placeholder": "True",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "dolarFlag",
+      "DisplayName": "dolarFlag",
+      "Category": null,
+      "Tooltip": null,
+      "Placeholder": "True",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "fundInvestFlag",
+      "DisplayName": "fundInvestFlag",
+      "Category": null,
+      "Tooltip": null,
+      "Placeholder": "True",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "igpmFlag",
+      "DisplayName": "igpmFlag",
+      "Category": null,
+      "Tooltip": null,
+      "Placeholder": "True",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "ipcaFlag",
+      "DisplayName": "ipcaFlag",
+      "Category": null,
+      "Tooltip": null,
+      "Placeholder": "True",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "titulosPublicosLFTFlag",
+      "DisplayName": "titulosPublicosLFTFlag",
+      "Category": null,
+      "Tooltip": null,
+      "Placeholder": "True",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    }
+  ]
+}

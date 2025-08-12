@@ -1,0 +1,850 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="PopulandoQueueFilhas" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="diaSemanaBoo" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="ID_Item" Type="InArgument(x:String)" />
+    <x:Property Name="acoesFundosFlag" Type="InArgument(x:Boolean)" />
+    <x:Property Name="bovespaFlag" Type="InArgument(x:Boolean)" />
+    <x:Property Name="CDIFLag" Type="InArgument(x:Boolean)" />
+    <x:Property Name="CriCraFlag" Type="InArgument(x:Boolean)" />
+    <x:Property Name="debenduresFlag" Type="InArgument(x:Boolean)" />
+    <x:Property Name="dolarFlag" Type="InArgument(x:Boolean)" />
+    <x:Property Name="fundInvestFlag" Type="InArgument(x:Boolean)" />
+    <x:Property Name="igpmFlag" Type="InArgument(x:Boolean)" />
+    <x:Property Name="ipcaFlag" Type="InArgument(x:Boolean)" />
+    <x:Property Name="dataExtrair" Type="InArgument(s:DateTime)" />
+    <x:Property Name="extracaomensalIPCA" Type="InArgument(x:Boolean)" />
+    <x:Property Name="extracaomensalIGPM" Type="InArgument(x:Boolean)" />
+    <x:Property Name="titulosPublicosLFTFlag" Type="InArgument(x:Boolean)" />
+    <x:Property Name="dataExterna" Type="InArgument(x:Boolean)" />
+    <x:Property Name="fundoInvestBoo" Type="InArgument(x:Boolean)" />
+    <x:Property Name="cdiDebentureTime" Type="InArgument(s:DateTime)" />
+    <x:Property Name="dataExtracao" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>754,3958</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>PopulandoQueueFilhas_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="52">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="PopulandoQueueFilhas" sap:VirtualizedContainerService.HintSize="976,6035" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Default="CDI" Name="variableCDI" />
+      <Variable x:TypeArguments="x:String" Default="Dolar" Name="variableDolar" />
+      <Variable x:TypeArguments="x:String" Default="CRICRA" Name="variableCRICRA" />
+      <Variable x:TypeArguments="x:String" Default="DEBENTURES" Name="variableDEBENTURES" />
+      <Variable x:TypeArguments="x:String" Default="ACOESFUNDOS" Name="variableACOESFUNDOS" />
+      <Variable x:TypeArguments="x:String" Default="FUNDOSINVESTIMENTOS" Name="variableFUNDOSINVEST" />
+      <Variable x:TypeArguments="x:String" Default="TITULOSPUBLICOS" Name="variableTITULOSPUBLICOS" />
+      <Variable x:TypeArguments="x:String" Default="Bovespa" Name="variableBovespa" />
+      <Variable x:TypeArguments="x:String" Name="dataAtual" />
+      <Variable x:TypeArguments="x:String" Default="IGP" Name="variableIGP" />
+      <Variable x:TypeArguments="x:String" Default="IPCA" Name="variavelIPCA" />
+      <Variable x:TypeArguments="x:String" Default="IGPM" Name="variableIGPM" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign sap:VirtualizedContainerService.HintSize="484,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[dataAtual]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[Now.ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="484,114" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[dataExtracao]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[dataExtracao.Substring(0,10)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Sequence sap:VirtualizedContainerService.HintSize="484,4915" sap2010:WorkflowViewState.IdRef="Sequence_63">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If Condition="[debenduresFlag]" DisplayName="debenduresFlag" sap:VirtualizedContainerService.HintSize="450,536" sap2010:WorkflowViewState.IdRef="If_9">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,277" sap2010:WorkflowViewState.IdRef="Sequence_18">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item DEBENTURES" FolderPath="Kristal" sap:VirtualizedContainerService.HintSize="382,217" sap2010:WorkflowViewState.IdRef="AddQueueItem_9" Priority="Normal" QueueType="[variableDEBENTURES]" Reference="[dataAtual]">
+              <ui:AddQueueItem.ItemInformation>
+                <InArgument x:TypeArguments="x:String" x:Key="Nome_do_Ativo">[variableDEBENTURES]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Link">[in_Config( variableDEBENTURES).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="ID_Item">[ID_Item]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="dataExtracao">[dataextracao]</InArgument>
+              </ui:AddQueueItem.ItemInformation>
+            </ui:AddQueueItem>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_19">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
+      <If Condition="[CDIFLag]" DisplayName="CDIFLag" sap:VirtualizedContainerService.HintSize="450,538" sap2010:WorkflowViewState.IdRef="If_6">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,279" sap2010:WorkflowViewState.IdRef="Sequence_12">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DeferDate="[dataExtrair.AddMinutes(5)]" DisplayName="Add Queue Item CDI" FolderPath="Kristal" sap:VirtualizedContainerService.HintSize="382,219" sap2010:WorkflowViewState.IdRef="AddQueueItem_19" Priority="Normal" QueueType="indices" Reference="[&quot;CDI &quot;+dataAtual]">
+              <ui:AddQueueItem.ItemInformation>
+                <InArgument x:TypeArguments="x:String" x:Key="Nome_do_Ativo">[variableCDI]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Link">[in_Config( variableCDI).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="ID_Item">[ID_Item]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="dataExtracao">[dataExtrair.ToString("dd/MM/yyyy")]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="valorCodigo">12</InArgument>
+              </ui:AddQueueItem.ItemInformation>
+            </ui:AddQueueItem>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_13">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
+      <If Condition="[ipcaFlag]" DisplayName="ipcaFlag" sap:VirtualizedContainerService.HintSize="450,538" sap2010:WorkflowViewState.IdRef="If_3">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,279" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item - IPCA" FolderPath="Kristal" sap:VirtualizedContainerService.HintSize="382,219" sap2010:WorkflowViewState.IdRef="AddQueueItem_20" Priority="Normal" QueueType="indices" Reference="[&quot;IPCA &quot;+dataAtual]">
+              <ui:AddQueueItem.ItemInformation>
+                <InArgument x:TypeArguments="x:String" x:Key="Nome_do_Ativo">[variavelIPCA]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Link">[in_Config( variavelIPCA).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="ID_Item">[ID_Item]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="dataExtracao">[dataExtrair.ToString("dd/MM/yyyy")]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="valorCodigo">433</InArgument>
+              </ui:AddQueueItem.ItemInformation>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:AddQueueItem>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
+      <If Condition="[igpmFlag]" DisplayName="igpmFlag" sap:VirtualizedContainerService.HintSize="450,538" sap2010:WorkflowViewState.IdRef="If_4">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,279" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item - IGPM" FolderPath="Kristal" sap:VirtualizedContainerService.HintSize="382,219" sap2010:WorkflowViewState.IdRef="AddQueueItem_4" Priority="Normal" QueueType="indices" Reference="[&quot;IGPM &quot;+dataAtual]">
+              <ui:AddQueueItem.ItemInformation>
+                <InArgument x:TypeArguments="x:String" x:Key="Nome_do_Ativo">[variableIGP]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Link">[in_Config( variableIGP).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="ID_Item">[ID_Item]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="dataExtracao">[dataExtrair.ToString("dd/MM/yyyy")]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="valorCodigo">189</InArgument>
+              </ui:AddQueueItem.ItemInformation>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:AddQueueItem>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
+      <If Condition="[bovespaFlag]" DisplayName="bovespaFlag" sap:VirtualizedContainerService.HintSize="450,536" sap2010:WorkflowViewState.IdRef="If_5">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,277" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item bovespa" FolderPath="Kristal" sap:VirtualizedContainerService.HintSize="382,217" sap2010:WorkflowViewState.IdRef="AddQueueItem_5" Priority="Normal" QueueType="[variableBovespa]" Reference="[&quot;bovespa &quot;+dataAtual]">
+              <ui:AddQueueItem.ItemInformation>
+                <InArgument x:TypeArguments="x:String" x:Key="Nome_do_Ativo">[variableBovespa]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Link">[in_Config( variableBovespa).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="ID_Item">[ID_Item]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="dataExtracao">[dataExtracao]</InArgument>
+              </ui:AddQueueItem.ItemInformation>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:AddQueueItem>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_11">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
+      <If Condition="[dolarFlag]" DisplayName="dolarFlag" sap:VirtualizedContainerService.HintSize="450,538" sap2010:WorkflowViewState.IdRef="If_7">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,279" sap2010:WorkflowViewState.IdRef="Sequence_14">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item Dolar" FolderPath="Kristal" sap:VirtualizedContainerService.HintSize="382,219" sap2010:WorkflowViewState.IdRef="AddQueueItem_7" Priority="Normal" QueueType="indices" Reference="[&quot;dolar &quot;+dataAtual]">
+              <ui:AddQueueItem.ItemInformation>
+                <InArgument x:TypeArguments="x:String" x:Key="Nome_do_Ativo">[variableDolar]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Link" xml:space="preserve">[in_Config(  variableDolar).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="ID_Item">[ID_Item]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="dataExtracao">[dataExtrair.ToString("dd/MM/yyyy")]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="valorCodigo">1</InArgument>
+              </ui:AddQueueItem.ItemInformation>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:AddQueueItem>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_15">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
+      <If Condition="[CriCraFlag]" DisplayName="CriCraFlag" sap:VirtualizedContainerService.HintSize="450,536" sap2010:WorkflowViewState.IdRef="If_8">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,277" sap2010:WorkflowViewState.IdRef="Sequence_16">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item CRICRA" FolderPath="Kristal" sap:VirtualizedContainerService.HintSize="382,217" sap2010:WorkflowViewState.IdRef="AddQueueItem_8" Priority="Normal" QueueType="[variableCRICRA]" Reference="[dataAtual]">
+              <ui:AddQueueItem.ItemInformation>
+                <InArgument x:TypeArguments="x:String" x:Key="Nome_do_Ativo">[variableCRICRA]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Link">[in_Config( variableCRICRA).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="ID_Item">[ID_Item]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="dataExtracao">[dataExtracao]</InArgument>
+              </ui:AddQueueItem.ItemInformation>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:AddQueueItem>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_17">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
+      <If Condition="[acoesFundosFlag]" DisplayName="acoesFundosFlag" sap:VirtualizedContainerService.HintSize="450,536" sap2010:WorkflowViewState.IdRef="If_10">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,277" sap2010:WorkflowViewState.IdRef="Sequence_20">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item ACOESFUNDOS" FolderPath="Kristal" sap:VirtualizedContainerService.HintSize="382,217" sap2010:WorkflowViewState.IdRef="AddQueueItem_10" Priority="Normal" QueueType="[variableACOESFUNDOS]" Reference="[dataAtual]">
+              <ui:AddQueueItem.ItemInformation>
+                <InArgument x:TypeArguments="s:DateTime" x:Key="Referencia">[Now]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Nome_do_Ativo">[variableACOESFUNDOS]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Link">[in_Config( variableACOESFUNDOS).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="ID_Item">[ID_Item]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="dataExtracao">[dataExtracao]</InArgument>
+              </ui:AddQueueItem.ItemInformation>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:AddQueueItem>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_21">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
+      <If Condition="[fundInvestFlag]" DisplayName="fundInvestFlag" sap:VirtualizedContainerService.HintSize="450,527" sap2010:WorkflowViewState.IdRef="If_11">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,277" sap2010:WorkflowViewState.IdRef="Sequence_22">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item FUNDOSINVEST" FolderPath="Kristal" sap:VirtualizedContainerService.HintSize="382,217" sap2010:WorkflowViewState.IdRef="AddQueueItem_18" Priority="Normal" QueueType="[variableFUNDOSINVEST]" Reference="[dataAtual]">
+              <ui:AddQueueItem.ItemInformation>
+                <InArgument x:TypeArguments="s:DateTime" x:Key="Referencia">[Now]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Nome_do_Ativo">[variableFUNDOSINVEST]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Link">[in_Config( variableFUNDOSINVEST).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="ID_Item">[ID_Item]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="dataExtracao">[dataExtracao]</InArgument>
+              </ui:AddQueueItem.ItemInformation>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:AddQueueItem>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_23">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
+    </Sequence>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484,57" sap2010:WorkflowViewState.IdRef="CommentOut_15">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Atividades Ignoradas" sap:VirtualizedContainerService.HintSize="416,135" sap2010:WorkflowViewState.IdRef="Sequence_67">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[diaSemanaBoo]" sap:VirtualizedContainerService.HintSize="382,75" sap2010:WorkflowViewState.IdRef="If_20">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_68">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </If.Else>
+          </If>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <If Condition="[titulosPublicosLFTFlag]" DisplayName="titulosPublicosLFTFlag" sap:VirtualizedContainerService.HintSize="484,536" sap2010:WorkflowViewState.IdRef="If_22">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,277" sap2010:WorkflowViewState.IdRef="Sequence_24">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue variableTITULOSPUBLICOSLFT" FolderPath="Kristal" sap:VirtualizedContainerService.HintSize="382,217" sap2010:WorkflowViewState.IdRef="AddQueueItem_12" Priority="Normal" QueueType="[variableTITULOSPUBLICOS]" Reference="[&quot;LFTF&quot;+dataAtual]">
+            <ui:AddQueueItem.ItemInformation>
+              <InArgument x:TypeArguments="x:String" x:Key="Nome_do_Ativo">titulosPublicos</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Link">[in_Config( variableTITULOSPUBLICOS).ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="ID_Item">[ID_Item]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="dataExtracao">[dataExtracao]</InArgument>
+            </ui:AddQueueItem.ItemInformation>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:AddQueueItem>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_25">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484,57" sap2010:WorkflowViewState.IdRef="CommentOut_16">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Atividades Ignoradas" sap:VirtualizedContainerService.HintSize="416,135" sap2010:WorkflowViewState.IdRef="Sequence_69">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[titulosPublicosLTNFlag]" DisplayName="titulosPublicosLTNFlag" sap:VirtualizedContainerService.HintSize="382,75" sap2010:WorkflowViewState.IdRef="If_23">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,277" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue variableTITULOSPUBLICOSLFT" FolderPath="aut_tmsdb3" sap:VirtualizedContainerService.HintSize="382,217" sap2010:WorkflowViewState.IdRef="AddQueueItem_13" Priority="Normal" QueueType="[variableTITULOSPUBLICOS]" Reference="[&quot;LTNF &quot;+dataAtual]">
+                  <ui:AddQueueItem.ItemInformation>
+                    <InArgument x:TypeArguments="x:String" x:Key="Nome_do_Ativo">LTN</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="Link">[in_Config( variableTITULOSPUBLICOS).ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="ID_Item">[ID_Item]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="dataExtracao">[dataExtrair.ToString("dd/MM/yyyy")]</InArgument>
+                  </ui:AddQueueItem.ItemInformation>
+                </ui:AddQueueItem>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </If.Else>
+          </If>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484,57" sap2010:WorkflowViewState.IdRef="CommentOut_17">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Atividades Ignoradas" sap:VirtualizedContainerService.HintSize="484,587" sap2010:WorkflowViewState.IdRef="Sequence_70">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[titulosPublicosNTNBFlag]" DisplayName="titulosPublicosNTN-BFlag" sap:VirtualizedContainerService.HintSize="450,527" sap2010:WorkflowViewState.IdRef="If_24">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,277" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue variableTITULOSPUBLICOSLFT" sap:VirtualizedContainerService.HintSize="382,217" sap2010:WorkflowViewState.IdRef="AddQueueItem_14" Priority="Normal" QueueType="[variableTITULOSPUBLICOS]" Reference="[&quot;NTNB &quot;+dataAtual]">
+                  <ui:AddQueueItem.ItemInformation>
+                    <InArgument x:TypeArguments="x:String" x:Key="Nome_do_Ativo">NTN-B</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="Link">[in_Config( variableTITULOSPUBLICOS).ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="ID_Item">[ID_Item]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="dataExtracao">[dataExtrair.ToString("dd/MM/yyyy")]</InArgument>
+                  </ui:AddQueueItem.ItemInformation>
+                </ui:AddQueueItem>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </If.Else>
+          </If>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484,57" sap2010:WorkflowViewState.IdRef="CommentOut_12">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Atividades Ignoradas" sap:VirtualizedContainerService.HintSize="452,486" sap2010:WorkflowViewState.IdRef="Sequence_51">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[titulosPublicosNTNBPrincipalFlag]" DisplayName="titulosPublicosNTN-B PrincipalFlag" sap:VirtualizedContainerService.HintSize="418,426" sap2010:WorkflowViewState.IdRef="If_16">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,277" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue variableTITULOSPUBLICOSLFT" sap:VirtualizedContainerService.HintSize="382,217" sap2010:WorkflowViewState.IdRef="AddQueueItem_15" Priority="Normal" QueueType="[variableTITULOSPUBLICOS]" Reference="[&quot;NTNBPrincipal &quot;+dataAtual]">
+                  <ui:AddQueueItem.ItemInformation>
+                    <InArgument x:TypeArguments="x:String" x:Key="Nome_do_Ativo">NTN-B Principal</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="Link">[in_Config( variableTITULOSPUBLICOS).ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="ID_Item">[ID_Item]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="dataExtracao">[dataExtrair.ToString("dd/MM/yyyy")]</InArgument>
+                  </ui:AddQueueItem.ItemInformation>
+                </ui:AddQueueItem>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Else" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </If.Else>
+          </If>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484,57" sap2010:WorkflowViewState.IdRef="CommentOut_13">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Atividades Ignoradas" sap:VirtualizedContainerService.HintSize="484,587" sap2010:WorkflowViewState.IdRef="Sequence_52">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[titulosPublicosNTNCFlag]" DisplayName="titulosPublicosNTN-CFlag" sap:VirtualizedContainerService.HintSize="450,527" sap2010:WorkflowViewState.IdRef="If_17">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,277" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue variableTITULOSPUBLICOSLFT" sap:VirtualizedContainerService.HintSize="382,217" sap2010:WorkflowViewState.IdRef="AddQueueItem_16" Priority="Normal" QueueType="[variableTITULOSPUBLICOS]" Reference="[&quot;NTNC &quot;+dataAtual]">
+                  <ui:AddQueueItem.ItemInformation>
+                    <InArgument x:TypeArguments="x:String" x:Key="Nome_do_Ativo">NTN-C</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="Link">[in_Config( variableTITULOSPUBLICOS).ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="ID_Item">[ID_Item]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="dataExtracao">[dataExtrair.ToString("dd/MM/yyyy")]</InArgument>
+                  </ui:AddQueueItem.ItemInformation>
+                </ui:AddQueueItem>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </If.Else>
+          </If>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484,48" sap2010:WorkflowViewState.IdRef="CommentOut_14">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Atividades Ignoradas" sap:VirtualizedContainerService.HintSize="484,518" sap2010:WorkflowViewState.IdRef="Sequence_53">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[titulosPublicosNTNFFlag]" DisplayName="titulosPublicosNTN-FFlag" sap:VirtualizedContainerService.HintSize="450,458" sap2010:WorkflowViewState.IdRef="If_18">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,277" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue variableTITULOSPUBLICOSLFT" sap:VirtualizedContainerService.HintSize="382,217" sap2010:WorkflowViewState.IdRef="AddQueueItem_17" Priority="Normal" QueueType="[variableTITULOSPUBLICOS]" Reference="[&quot;NTNF &quot;+dataAtual]">
+                  <ui:AddQueueItem.ItemInformation>
+                    <InArgument x:TypeArguments="x:String" x:Key="Nome_do_Ativo">NTN-F</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="Link">[in_Config( variableTITULOSPUBLICOS).ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="ID_Item">[ID_Item]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="dataExtracao">[dataExtrair.ToString("dd/MM/yyyy")]</InArgument>
+                  </ui:AddQueueItem.ItemInformation>
+                </ui:AddQueueItem>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Else" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </If.Else>
+          </If>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+  </Sequence>
+</Activity>
